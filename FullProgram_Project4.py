@@ -27,10 +27,10 @@ while True: # continuously prompts user for a response until program is terminat
     if selection == '1': #if selection is one the Binary counter program runs 
             
             newnum = ' ';
-            for i in range(32):
-                newnum = "{0:05b}".format(i)
+            for i in range(32): #loop through 0 to 31 
+                newnum = "{0:05b}".format(i) # saves a binary string from the decimal number 
                 print(newnum);
-                digitOne = newnum[0];
+                digitOne = newnum[0]; # using indexing to determine how to light the LEDs 
                 digitTwo = newnum[1];
                 digitThree = newnum[2];
                 digitFour = newnum[3];
@@ -72,7 +72,7 @@ while True: # continuously prompts user for a response until program is terminat
                 GPIO.output(15, GPIO.LOW) # LED off
                 GPIO.output(16, GPIO.LOW) # LED off
                 
-    if selection == '2' :
+    if selection == '2' : # program to sweep through LEDs right to left 
               
                 GPIO.output(18, GPIO.HIGH) # LED on
                 sleep(.5)
@@ -95,7 +95,7 @@ while True: # continuously prompts user for a response until program is terminat
                 GPIO.output(16, GPIO.LOW) # LED off
               
               
-    if selection == '3' :
+    if selection == '3' : # Sweep through LEDs left to right 
               
                 GPIO.output(16, GPIO.HIGH) # LED on
                 sleep(.5)
@@ -118,8 +118,8 @@ while True: # continuously prompts user for a response until program is terminat
                 GPIO.output(18, GPIO.LOW) # LED off
 
               
-    if selection == '4' :
-              while True: 
+    if selection == '4' : # continuously sweep through from right to left 
+              while True: # whi.e loop to loop forever 
     
                 GPIO.output(18, GPIO.HIGH) # LED 	on
                 sleep(.5)
@@ -158,13 +158,13 @@ while True: # continuously prompts user for a response until program is terminat
                 GPIO.output(18, GPIO.LOW) # LED off
 
               
-    if selection == '5' :
+    if selection == '5' : # allows user to enter a number between 0 and 31 and displays number using LEDs 
               
-              while True :
+              while True : # continusly prompts user for a numer 
     
                 number = input("Enter a number between 0 and 31:")
 
-                if number in range(31) : 
+                if number in range(31) : # uses same method as option 1 
 
                     newnum = "{0:05b}".format(number)
                     print(newnum);
@@ -210,9 +210,9 @@ while True: # continuously prompts user for a response until program is terminat
                     GPIO.output(15, GPIO.LOW) # LED off
                     GPIO.output(16, GPIO.LOW) # LED off
 
-                else:
+                else: # else statement if user enters number outside of range 
                     
-                    for i in range(5) :
+                    for i in range(5) : # blinks 5 times if user enters incorrect number 
                         GPIO.output(18, GPIO.HIGH) # LED on
                         GPIO.output(11, GPIO.HIGH) # LED on
                         GPIO.output(13, GPIO.HIGH) # LED on
